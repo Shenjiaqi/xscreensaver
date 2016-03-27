@@ -83,6 +83,8 @@
 
 # include "xlockmore.h"
 
+#include <GL/glut.h>
+
 #undef countof
 #define countof(x) (sizeof((x))/sizeof((*x)))
 
@@ -1130,7 +1132,6 @@ init_hearthstoneshow (ModeInfo *mi)
   alloc_image (mi);
 }
 
-
 ENTRYPOINT void
 draw_hearthstoneshow (ModeInfo *mi)
 {
@@ -1157,17 +1158,6 @@ draw_hearthstoneshow (ModeInfo *mi)
     }
 
   ss->now = double_time();
-
-  /* Each sprite has three states: fading in, full, fading out.
-     The in/out states overlap like this:
-
-     iiiiiiFFFFFFFFFFFFoooooo  . . . . . . . . . . . . . . . . .
-     . . . . . . . . . iiiiiiFFFFFFFFFFFFoooooo  . . . . . . . .
-     . . . . . . . . . . . . . . . . . . iiiiiiFFFFFFFFFFFFooooo
-
-     So as soon as a sprite goes into the "out" state, we create
-     a new sprite (in the "in" state.)
-   */
 
   if (ss->nsprites > 2) abort();
 

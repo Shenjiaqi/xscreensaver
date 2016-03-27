@@ -9,9 +9,9 @@ export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
 -I/opt/X11/include \
 -I/usr/local/Cellar/gdk-pixbuf/2.32.3/include/gdk-pixbuf-2.0/" \
 LDFLAGS="${gtk_lib} \
--L/usr/local/Cellar/gettext/0.19.3/lib/ \
+-L/usr/local/Cellar/gettext/0.19.7/lib/ \
 -L/usr/local/Cellar/gdk-pixbuf/2.32.3/lib/" \
 CPPFLAGS="${gtk_include} \
 -I/opt/X11/include \
--I/usr/local/Cellar/gettext/0.19.3/include/ \
+-I/usr/local/Cellar/gettext/0.19.7/include/ \
 -I/usr/local/Cellar/gdk-pixbuf/2.32.3/include/gdk-pixbuf-2.0/"
