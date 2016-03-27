@@ -105,7 +105,7 @@ SRCS		= xscreensaver-gl-helper.c normals.c fps-gl.c \
 		  toaster_handle2.c toaster_jet.c toaster_knob.c \
 		  toaster_slots.c toaster_wing.c toast.c toast2.c \
 		  bouncingcow.c cow_face.c cow_hide.c cow_hoofs.c cow_horns.c \
-		  cow_tail.c cow_udder.c glslideshow.c jigglypuff.c klein.c \
+		  cow_tail.c cow_udder.c glslideshow.c hearthStoneShow.c jigglypuff.c klein.c \
 		  hypertorus.c glmatrix.c cubestorm.c glknots.c blocktube.c \
 		  flipflop.c antspotlight.c polytopes.c gleidescope.c \
 		  mirrorblob.c blinkbox.c noof.c polyhedra.c polyhedra-gl.c \
@@ -147,7 +147,7 @@ OBJS		= xscreensaver-gl-helper.o normals.o fps-gl.o \
 		  toaster_handle2.o toaster_jet.o toaster_knob.o \
 		  toaster_slots.o toaster_wing.o toast.o toast2.o \
 		  bouncingcow.o cow_face.o cow_hide.o cow_hoofs.o cow_horns.o \
-		  cow_tail.o cow_udder.o glslideshow.o jigglypuff.o klein.o \
+		  cow_tail.o cow_udder.o glslideshow.o hearthStoneShow.o jigglypuff.o klein.o \
 		  hypertorus.o glmatrix.o cubestorm.o glknots.o blocktube.o \
 		  flipflop.o antspotlight.o polytopes.o gleidescope.o \
 		  mirrorblob.o blinkbox.o noof.o polyhedra.o polyhedra-gl.o \
@@ -172,7 +172,7 @@ GL_EXES		= cage gears moebius pipes sproingies stairs superquadrics \
 		  dangerball circuit menger engine flipscreen3d glsnake boxed \
 		  sballs cubenetic spheremonics lavalite queens \
 		  endgame glblur flurry atunnel flyingtoasters bouncingcow \
-		  glslideshow jigglypuff klein hypertorus glmatrix cubestorm \
+		  glslideshow hearthStoneShow jigglypuff klein hypertorus glmatrix cubestorm \
 		  glknots blocktube flipflop antspotlight polytopes \
 		  gleidescope mirrorblob blinkbox noof polyhedra \
 		  antinspect providence pinion boing carousel fliptext \
@@ -227,7 +227,7 @@ GL_MEN		= atlantis.man boxed.man bubble3d.man cage.man circuit.man \
 		  spheremonics.man sproingies.man stairs.man starwars.man \
 		  stonerview.man superquadrics.man xscreensaver-gl-helper.man \
 		  endgame.man flurry.man glblur.man atunnel.man \
-		  flyingtoasters.man bouncingcow.man glslideshow.man \
+		  flyingtoasters.man bouncingcow.man glslideshow.man hearthStoneShow \
 		  jigglypuff.man klein.man hypertorus.man glmatrix.man \
 		  cubestorm.man glknots.man blocktube.man flipflop.man \
 		  antspotlight.man polytopes.man gleidescope.man \
@@ -708,6 +708,9 @@ winduprobot_dxf::
 	./dxf2gl.pl --wireframe robot-wireframe.dxf robot-wireframe.c
 
 glslideshow:	glslideshow.o	$(HACK_GRAB_OBJS)
+	$(CC_HACK) -o $@ $@.o	$(HACK_GRAB_OBJS) $(HACK_LIBS)
+
+hearthStoneShow: hearthStoneShow.o	$(HACK_GRAB_OBJS)
 	$(CC_HACK) -o $@ $@.o	$(HACK_GRAB_OBJS) $(HACK_LIBS)
 
 jigglypuff:	jigglypuff.o	xpm-ximage.o $(HACK_TRACK_OBJS)
@@ -1913,6 +1916,24 @@ glslideshow.o: $(UTILS_SRC)/xshm.h
 glslideshow.o: $(UTILS_SRC)/yarandom.h
 glslideshow.o: $(HACK_SRC)/xlockmoreI.h
 glslideshow.o: $(HACK_SRC)/xlockmore.h
+hearthStoneShow.o: ../../config.h
+hearthStoneShow.o: $(HACK_SRC)/fps.h
+hearthStoneShow.o: $(srcdir)/grab-ximage.h
+hearthStoneShow.o: $(srcdir)/jwzglesI.h
+hearthStoneShow.o: $(srcdir)/jwzgles.h
+hearthStoneShow.o: $(HACK_SRC)/screenhackI.h
+hearthStoneShow.o: $(srcdir)/texfont.h
+hearthStoneShow.o: $(UTILS_SRC)/colors.h
+hearthStoneShow.o: $(UTILS_SRC)/grabscreen.h
+hearthStoneShow.o: $(UTILS_SRC)/hsv.h
+hearthStoneShow.o: $(UTILS_SRC)/resources.h
+hearthStoneShow.o: $(UTILS_SRC)/usleep.h
+hearthStoneShow.o: $(UTILS_SRC)/visual.h
+hearthStoneShow.o: $(UTILS_SRC)/xshm.h
+hearthStoneShow.o: $(UTILS_SRC)/yarandom.h
+hearthStoneShow.o: $(HACK_SRC)/xlockmoreI.h
+hearthStoneShow.o: $(HACK_SRC)/xlockmore.h
+
 glsnake.o: ../../config.h
 glsnake.o: $(HACK_SRC)/fps.h
 glsnake.o: $(srcdir)/jwzglesI.h

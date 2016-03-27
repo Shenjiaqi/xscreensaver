@@ -36,6 +36,7 @@ my %disable = (
    'fadeplot'		=> 1,
    'glblur'		=> 1,
    'glslideshow'	=> 1,
+   'hearthStoneShow'    => 1,
    'jigglypuff'		=> 1,
    'kaleidescope'	=> 1,
    'lcdscrub'		=> 1,
